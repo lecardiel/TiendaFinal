@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo de Platillos</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>🍴 Catálogo de Platillos</h1>
+      <p>Explora una variedad de platillos internacionales.</p>
+      <a href="cart.html" class="cart-link">Ir al carrito ({{ cart.length }})</a>
+    </header>
+
+    <!-- Barra de Progreso -->
+    <div class="progress-bar" v-if="meals.length > 0">
+      <div class="bar" :style="{ width: progressPercentage + '%' }"></div>
+      <p>{{ progressPercentage }}% de platillos agregados al carrito</p>
+    </div>
+
+    <section class="filters">
+      <input
+        type="text"
+        v-model="searchQuery"
+        placeholder="🔍 Buscar por nombre..."
+      />
+      <select v-model="selectedCategory">
+        <option value="">🌐 Todas las categorías</option>
+        <option v-for="category in categories" :key="category" :value="category">
+          {{ category }}
+        </option>
+      </select>
+    </section>
+
+    <section class="meal-grid">
+      <div v-for="meal in filteredMeals" :key="meal.idMeal" class="meal-card">
+        <img :src="meal.strMealThumb" alt="Imagen del platillo" />
+        <h3>{{ meal.strMeal }}</h3>
+        <p class="category">Categoría: {{ meal.strCategory }}</p>
+        <button class="detail-btn" @click="viewDetails(meal)">Ver Detalles</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="./vue3.js"></script>
+</body>
+</html>

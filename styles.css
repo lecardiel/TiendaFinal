@@ -1,0 +1,226 @@
+/* General Reset */
+body, h1, h2, h3, p, ul, ol, li, button, input, select, a {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #f3f4f6; /* Fondo claro */
+  color: #333; /* Texto oscuro */
+  line-height: 1.6;
+}
+
+header {
+  background-color: #1e3a8a; /* Azul oscuro */
+  color: white;
+  text-align: center;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1rem;
+}
+
+.cart-link {
+  color: #ffdd57; /* Amarillo */
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.cart-link:hover {
+  text-decoration: underline;
+}
+
+/* Barra de Progreso */
+.progress-bar {
+  margin: 20px;
+  height: 25px;
+  background-color: #e0e0e0;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar .bar {
+  height: 100%;
+  background-color: #4caf50; /* Verde */
+  text-align: center;
+  color: white;
+  line-height: 25px;
+  font-size: 0.9rem;
+  transition: width 0.5s ease-in-out;
+}
+
+/* Filtros */
+.filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #e5e7eb; /* Gris claro */
+  border-bottom: 1px solid #d1d5db;
+}
+
+.filters input,
+.filters select {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+/* Catálogo de Platillos */
+.meal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.meal-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.meal-card:hover {
+  transform: scale(1.05);
+}
+
+.meal-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.meal-card h3 {
+  padding: 10px;
+  font-size: 1.3rem;
+  color: #333;
+}
+
+.meal-card .category {
+  padding: 0 10px;
+  color: #777;
+}
+
+.detail-btn {
+  display: inline-block;
+  background-color: #4caf50; /* Verde */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.detail-btn:hover {
+  background-color: #45a049;
+}
+
+/* Detalle del Platillo */
+.meal-detail {
+  max-width: 800px;
+  margin: 40px auto;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 20px;
+}
+
+.meal-detail img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.meal-detail h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #1e3a8a; /* Azul */
+}
+
+.meal-detail p {
+  margin: 10px 0;
+  color: #555;
+}
+
+.quantity-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.quantity-btn {
+  padding: 10px;
+  font-size: 1.2rem;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.quantity-btn:hover {
+  background-color: #ddd;
+}
+
+.quantity-display {
+  margin: 0 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.add-btn {
+  display: block;
+  margin: 20px auto;
+  padding: 12px 20px;
+  background-color: #ff9800; /* Naranja */
+  color: white;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 80%;
+}
+
+.add-btn:hover {
+  background-color: #fb8c00;
+}
+
+/* Botón de Regreso */
+.back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  padding: 10px;
+  background-color: #1e3a8a; /* Azul */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.back-btn:hover {
+  background-color: #2543a0;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carrito de Compras</title>
+  <link rel="stylesheet" href="cart.css" />
+  <script src="https://cdn.jsdelivr.net/npm/vue@3"></script> <!-- Asegúrate de usar Vue 3 -->
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>🛒 Carrito de Compras</h1>
+      <a href="index.html" class="cart-link">Volver al Catálogo</a>
+    </header>
+
+    <section class="cart-section">
+      <div v-if="cart.length === 0" class="empty-cart">
+        <p>No hay platillos en el carrito.</p>
+        <a href="index.html">Explorar Platillos</a>
+      </div>
+
+      <table v-else class="cart-table">
+        <thead>
+          <tr>
+            <th>Imagen</th>
+            <th>Platillo</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Total</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(meal, index) in cart" :key="meal.idMeal">
+            <td>
+              <img :src="meal.strMealThumb || 'ruta/a/imagen/default.jpg'" alt="Imagen del platillo" class="meal-image" />
+            </td>
+            <td>{{ meal.strMeal }}</td>
+            <td>
+              <button @click="decreaseQuantity(index)">-</button>
+              {{ meal.quantity }}
+              <button @click="increaseQuantity(index)">+</button>
+            </td>
+            <td>${{ meal.price }}</td>
+            <td>${{ meal.price * meal.quantity }}</td>
+            <td>
+              <button @click="removeMeal(index)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div v-if="cart.length > 0" class="cart-summary">
+        <p><strong>Total: </strong>${{ totalPrice }}</p>
+      </div>
+    </section>
+  </div>
+
+  <script src="vue3.js"></script> <!-- Asegúrate de que este sea el archivo adecuado para tu Vue -->
+  <script src="cart.js"></script> <!-- El archivo con la lógica Vue -->
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalle del Platillo</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <!-- Botón de regreso -->
+      <button class="back-btn" @click="goBack">⬅️ Regresar al Catálogo</button>
+    </header>
+
+    <!-- Contenido principal -->
+    <div v-if="currentMeal">
+      <section class="meal-detail">
+        <img :src="currentMeal.strMealThumb" alt="Imagen del platillo" />
+        <h1>{{ currentMeal.strMeal }}</h1>
+        <p><strong>Categoría:</strong> {{ currentMeal.strCategory }}</p>
+        <p><strong>Instrucciones:</strong> {{ currentMeal.strInstructions }}</p>
+        <div class="quantity-section">
+          <button class="quantity-btn" @click="decrementQuantity" :disabled="quantity <= 1">-</button>
+          <span class="quantity-display">{{ quantity }}</span>
+          <button class="quantity-btn" @click="incrementQuantity" :disabled="quantity >= 6">+</button>
+        </div>
+        <button class="add-btn" @click="addToCart">Agregar al carrito</button>
+      </section>
+    </div>
+
+    <div v-else>
+      <h2>No se encontró el platillo.</h2>
+      <a href="index.html" class="back-btn">Regresar al Catálogo</a>
+    </div>
+  </div>
+<script src="/vue3.js"></script>
+  <script src="detalles.js"></script>
+</body>
+</html>
